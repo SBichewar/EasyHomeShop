@@ -1,0 +1,82 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.example-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+  }
+  .login-link{
+color: #fff;
+text-decoration: none;
+font-size:15px;
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  .example-is-mobile .example-toolbar {
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+  }
+  
+  h1.example-app-name {
+    margin-left: 8px;
+  }
+  
+  .example-sidenav-container {
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+    flex: 1;
+   
+  }
+  
+  .example-is-mobile .example-sidenav-container {
+    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+       `<body>` to be our scrolling element for mobile layouts. */
+    flex: 1 0 auto;
+   
+  }
+  
+  .slider-backgorund
+  {
+    background-color: #141414cf; 
+    height:100% !important;
+    width:auto !important;
+    box-shadow: 1px 0px 5px 3px grey !important;
+  }
+
+  .slider-menu{
+    color:#fff  !important;
+    font-family: Roboto,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif !important;
+letter-spacing: 0.5px !important;
+    font-size: 13px !important;
+    
+  }
+
+  .md-sidenav-content {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .menu-icon{
+    color:#6274d5 !important;
+  }
+
+  .slider-link{
+    margin-left: 1em;
+  }
+  .sidenav-container {
+    height: 100%;
+  }
+  
+  .sidenav {
+    width: 200px;
+  }
+  
+  .mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+  }

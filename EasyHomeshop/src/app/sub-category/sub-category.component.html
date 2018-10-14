@@ -1,0 +1,96 @@
+<app-header [PageHeader]="PageHeader"></app-header>
+<div class="col-md-12 col-sm-12" style="margin-top:2%">    
+    <div class="col-md-12 col-sm-12">
+<div class="col-md-4"></div>
+<div class="col-md-4">
+    <div class="row form-border">
+      <div class="col-md-12 col-sm-12 form-header-container">
+          <span class="form-header-title">Add/Update Sub Category</span>
+      </div>
+      <div class="col-md-12 col-sm-12">
+          <form class="example-form form" [formGroup]="subCategoryForm">  
+            <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                          <mat-select required placeholder="Select Category" formControlName="categoryId" [(ngModel)]="subCategory.CatId">
+<mat-option *ngFor="let item of Cat_List" [value]="item.Id">{{item.Name}}</mat-option>
+                          </mat-select>
+                          <mat-error *ngIf="subCategoryForm.get('categoryId').invalid && subCategoryForm.get('categoryId').touched">Select Category</mat-error >  
+                            </mat-form-field> 
+                           
+                <mat-form-field class="example-full-width">
+                    <input matInput  formControlName="subCategoryName" [(ngModel)]="subCategory.Name"  placeholder="Sub Category Name" required>
+                      <mat-error *ngIf="subCategoryForm.get('subCategoryName').invalid && subCategoryForm.get('subCategoryName').touched">Sub category name required</mat-error >  
+                    </mat-form-field> 
+            </div> 
+            <div class="clearfix"></div>
+              <div class="form-group">
+                  <div class="col-md-12 col-xs-12 col-sm-12 padding0px"> 
+                      <div class="col-md-6 col-sm-6 col-xs-6 padding0px">
+                            <button class="file-upload-button" (click)="UploadImage.click()">Select Image</button>                           
+                      </div>
+                      <div class="col-md-6 col-sm-6 col-xs-6 ">
+                            <img [src]="subCategory.SubCatImage" for *ngIf="subCategory.SubCatImage" class="img-responsive img-size"  alt="catImage" />
+                            <input  #UploadImage style="display:none" type="file" accept="image/*" (change)="changeListener($event)">
+                        </div>
+                </div>                
+              </div>
+              <div class="clearfix"></div>
+              </form> 
+              
+      </div>
+     
+      <div class="col-md-12 col-sm-12 text-center form-footer-container margin1">
+          <hr class="style1">
+          <button [disabled]="!subCategoryForm.valid || subCategory.SubCatImage.length==0"   mat-raised-button color="primary" (click)="SaveData()">
+              Add </button> &nbsp;
+              <button mat-raised-button color="accent" (click)="cancel()">Cancel</button>
+      </div>      
+    </div>   
+ 
+</div>
+<div class="col-md-4">
+
+</div>
+</div>
+</div>
+
+<div class="col-md-12 col-sm-12" style="margin-top:2%">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-6">
+    <div class="row well">
+        <table mat-table [dataSource]="dataSource">
+
+                <ng-container matColumnDef="CatName">
+                        <th mat-header-cell *matHeaderCellDef><span class="table-header-title">Category Name</span> </th>
+                        <td mat-cell *matCellDef="let element">{{element.CatName}}</td>
+                    </ng-container>                    
+
+            <ng-container matColumnDef="Name">
+                <th mat-header-cell *matHeaderCellDef><span class="table-header-title">Sub Category Name</span> </th>
+                <td mat-cell *matCellDef="let element">{{element.Name}}</td>
+            </ng-container>
+            
+            <ng-container matColumnDef="SubCatImage">
+                <th mat-header-cell *matHeaderCellDef><span class="table-header-title">Sub Category Image</span></th>
+                <td mat-cell *matCellDef="let element">
+                    <img [src]="element.SubCatImage" alt={{element.Name}} style="max-height:80px;max-width:80px;padding:2px;"/>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="Action">
+                <th mat-header-cell *matHeaderCellDef><span class="table-header-title">Action</span></th>
+                <td mat-cell *matCellDef="let element">
+                    <button class="btn btn-primary" (click)="editSubCat(element)">Edit</button>
+                    &nbsp; &nbsp;
+                    <button class="btn btn-danger" (click)="deleteSubCategory(element)">Delete</button>
+                </td>
+            </ng-container>            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns:displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator>
+
+  </div>
+  
+</div>
+

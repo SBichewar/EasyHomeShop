@@ -1,0 +1,48 @@
+
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <span class="example-app-name">EasyHomeShop</span>
+    <span class="example-spacer"></span>
+    <a href="#" class="login-link" style="float:right">Logout</a>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container" 
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" class="slider-backgorund">
+      <mat-nav-list>
+        <a mat-list-item routerLink="." class="slider-link" [routerLink]="['/Category']">
+         <mat-icon class="menu-icon">dashboard</mat-icon>&nbsp;&nbsp;
+         <span class="slider-menu"> Category</span>
+        </a>
+        <a mat-list-item routerLink="." class="slider-link"  [routerLink]="['/SubCategory']">
+            <mat-icon class="menu-icon">home</mat-icon>&nbsp;&nbsp;
+            <span class="slider-menu">Sub Category</span>
+        </a>
+        <a mat-list-item routerLink="." class="slider-link"  [routerLink]="['/Products']">
+            <mat-icon class="menu-icon">home</mat-icon>&nbsp;&nbsp;
+            <span class="slider-menu">Products</span>
+        </a>
+        <a mat-list-item routerLink="." class="slider-link" [routerLink]="['/SpecialOffer']">
+            <mat-icon class="menu-icon">home</mat-icon>&nbsp;&nbsp;
+            <span class="slider-menu">Offer</span>
+        </a>
+        <a mat-list-item routerLink="." class="slider-link" [routerLink]="['/Feedback']">
+            <mat-icon class="menu-icon">home</mat-icon>&nbsp;&nbsp;
+            <span class="slider-menu">Feedback</span>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content style="background-color:#e1e1e5">    
+      <router-outlet>
+
+
+      </router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+</div>
+
+
+

@@ -1,0 +1,26 @@
+<div class="loginBackgorund">
+    <mat-progress-bar mode="indeterminate" *ngIf="displayLoader"></mat-progress-bar>
+  <mat-card class="example-card">
+          <mat-card-content>
+      <form class="example-form" [formGroup]="loginForm">
+              <label class="login-title">Login Here</label>
+        <mat-form-field class="example-full-width">
+          <input matInput  formControlName="userName"  [(ngModel)]="userModel.UserName"  placeholder="User Name" required>            
+        <mat-error *ngIf="loginForm.get('userName').invalid && loginForm.get('userName').touched">Username is <strong>required</strong></mat-error >  
+      </mat-form-field>    
+        <mat-form-field class="example-full-width">
+          <input matInput  formControlName="password"  [(ngModel)]="userModel.Password"  placeholder="Password" required>         
+          <mat-error *ngIf="loginForm.get('password').required && loginForm.get('password').touched">Password is <strong>required</strong></mat-error>  
+          <mat-error *ngIf="!loginForm.get('password').minlength">Password is must be 5 digit</mat-error>            
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions >
+        <button [disabled]="!loginForm.valid" mat-raised-button color="primary" (click)="Login()">
+     Login
+    </button>
+      <button mat-raised-button color="accent" (click)="Register()">Register</button>
+    </mat-card-actions>
+  </mat-card>
+  </div>
+  

@@ -1,0 +1,54 @@
+
+  .login-header {
+    font-weight:bold;
+    font-size:20px;
+      }
+      
+      .login-title
+      {
+        font-size:22px;        
+        color:#337ab7 !important;
+        font-family: Roboto,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif !important;
+    
+      }
+      .example-margin {
+        margin: 0 10px;
+      }
+    
+     .example-form {
+      min-width: 150px;
+      max-width: 500px;
+      width: 100%;
+    }
+    
+    .example-full-width {
+      width: 100%;
+    }  
+      .example-card {
+        max-width: 400px;
+        margin:auto;    
+        background-color: #f5f5f5;
+        margin-top:10%;        
+      }
+      
+      .example-header-image {
+        /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+        background-size: cover;
+      }
+      
+      .example-form {
+        min-width: 150px;
+        max-width: 500px;
+        width: 100%;
+      }
+      
+      .example-full-width {
+        width: 100%;
+      }
+
+      .btn-alignment{
+        float: right;
+      }
+      .content-align{
+        text-align: center;
+      }

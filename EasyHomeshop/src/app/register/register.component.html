@@ -1,0 +1,85 @@
+<div class="loginBackgorund">
+  <mat-card class="example-card">
+    <mat-card-content>
+      <form class="example-form" [formGroup]="registationForm">
+        <label class="login-title">Registration</label>
+        <mat-form-field class="example-full-width">
+          <input matInput formControlName="firstName" [(ngModel)]="registration.FirstName" placeholder="First Name" required>
+          <mat-error *ngIf="registationForm.get('firstName').invalid && registationForm.get('firstName').touched">
+            First name is <strong>required</strong></mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput formControlName="lastName" [(ngModel)]="registration.LastName" placeholder="Password" required>
+          <mat-error *ngIf="registationForm.get('lastName').required && registationForm.get('lastName').touched">
+            Last name is <strong>required</strong></mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput formControlName="email" [(ngModel)]="registration.Email" placeholder="Email" required>
+          <mat-error *ngIf="registationForm.get('email').required && registationForm.get('email').touched">
+            Email is <strong>required</strong></mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput formControlName="phone" [(ngModel)]="registration.Mobile" placeholder="Mobile" required>
+          <mat-error *ngIf="registationForm.get('phone').required && registationForm.get('phone').touched">
+            Phone number <strong>required</strong></mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput formControlName="addressOne" [(ngModel)]="registration.Address.AddressLineOne" placeholder="Address Line One"
+            required>
+          <mat-error *ngIf="registationForm.get('addressOne').required && registationForm.get('addressOne').touched">
+            Address <strong>required</strong></mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput formControlName="addresstwo" [(ngModel)]="registration.Address.AddressLineTwo" placeholder="Address Line Two">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-select formControlName="state" placeholder="Select State" [(ngModel)]="registration.Address.State">
+            <mat-option *ngFor="let item of test" [value]="item.Id">{{item.Name}}</mat-option>
+            <mat-error *ngIf="registationForm.get('state').required && registationForm.get('state').touched">
+                State<strong>required</strong></mat-error>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-select formControlName="city" placeholder="Select City" [(ngModel)]="registration.Address.City">
+              <mat-option *ngFor="let item of test" [value]="item.Id">{{item.Name}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="registationForm.get('city').required && registationForm.get('city').touched">
+                City<strong>required</strong></mat-error>
+          </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput formControlName="pinCode" [(ngModel)]="registration.Address.PinCode" placeholder="Pin Code" required>
+          <mat-error *ngIf="registationForm.get('pinCode').required && registationForm.get('pinCode').touched">
+            PinCode <strong>required</strong></mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput formControlName="password" [(ngModel)]="registration.Password" placeholder="Password" required>
+          <mat-error *ngIf="registationForm.get('password').required && registationForm.get('password').touched">
+            Password is <strong>required</strong></mat-error>
+          <mat-error *ngIf="!registationForm.get('lastName').minlength">Password is must be 5 digit</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput formControlName="confirmPassword" placeholder="Confirm Password" required>
+          <mat-error *ngIf="registationForm.get('confirmPassword').required && registationForm.get('confirmPassword').touched">
+            Confirm Password is <strong>required</strong></mat-error>
+          <mat-error *ngIf="!registationForm.get('password').minlength">Password is must be 5 digit</mat-error>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button [disabled]="!registationForm.valid" mat-raised-button color="primary" (click)="RegisterUser()">
+     Register
+    </button>
+      <button mat-raised-button color="accent" (click)="Cancel()">Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
